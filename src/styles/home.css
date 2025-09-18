@@ -1,0 +1,555 @@
+:root{
+    --indigo:#333D8F;
+    --lavender:#A19BB7;
+    --text:#ffffff;
+  }
+  
+  /* ================== FOND GLOBAL POUR TOUTES LES PAGES ================== */
+
+  
+  .snap{
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  
+    /* Dégradé unique (identique partout) */
+    background: linear-gradient(180deg, var(--indigo) 66%, var(--lavender) 100%);
+    position: relative;
+  }
+  
+  /* Chaque section prend l’écran et reste transparente */
+  .section{
+    min-height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Vignette douce en bas de CHAQUE section (remplace l’ancienne .hero::after) */
+  .section::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0;
+    height:10svh;
+    pointer-events:none;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.15) 100%);
+  }
+  
+  /* ================== HERO & SECTIONS TRANSPARENTES ================== */
+  .hero{
+    position: relative;
+    min-height: 100svh;
+    width: 100%;
+    color: var(--text);
+    background: transparent;   /* ← fond transparent (on voit .snap) */
+    overflow: hidden;
+  }
+  .hero::after{ display:none; } /* on n’utilise plus la vignette spécifique du hero */
+  
+  .section--about,
+  .section--projects,
+  .section--contact{
+    background: transparent;   /* ← mêmes couleurs que le hero */
+    color: var(--text);
+  }
+  
+  /* ================== HEADER ================== */
+  .hero__header{ padding: 44px 72px 0; position: sticky; top:0; z-index:10; backdrop-filter: blur(2px); }
+  .hero__headerGrid{
+    display:grid;
+    grid-template-columns: 1fr auto 1fr; /* spacer | nav | socials */
+    align-items:center; gap:16px;
+  }
+  
+  /* NAV centrée et espacée convenablement */
+  .hero__nav{
+    display:flex;
+    justify-content: space-between;
+    gap: clamp(32px, 10vw, 120px);
+    width: min(900px, 100%);
+    margin: 0 auto;
+  }
+  
+  /* Liens (effet “subscribe”) */
+  .navbtn{
+    --primary-color: rgba(255,255,255,.9);
+    --hovered-color: var(--lavender);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .navbtn p{
+    margin: 0;
+    position: relative;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--primary-color);
+  }
+  .navbtn::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-7px;
+    width:0; height:2px;
+    background: var(--hovered-color);
+    transition: width .3s ease-out;
+  }
+  .navbtn p::before{
+    content: attr(data-text);
+    position:absolute; inset:0;
+    width:0%;
+    color: var(--hovered-color);
+    overflow:hidden;
+    transition: width .3s ease-out;
+  }
+  .navbtn:hover::after{ width:100%; }
+  .navbtn:hover p::before{ width:100%; }
+  .navbtn svg{
+    width:15px;
+    color: var(--primary-color);
+    transition: transform .2s, color .2s;
+    transition-delay: .2s;
+  }
+  .navbtn:hover svg{ transform: translateX(4px); color: var(--hovered-color); }
+  /* État actif (section visible) */
+  .navbtn.is-current p{ color:#fff; }
+  .navbtn.is-current::after{ width:100%; }
+  
+  /* ================== SOCIALS ================== */
+  .hero__socials{ display:flex; justify-content:end; gap:10px; }
+  .iconBtn{
+    height:36px; width:36px;
+    display:inline-flex; align-items:center; justify-content:center;
+    border-radius:999px; border:1px solid rgba(255,255,255,.35);
+    transition:.2s ease;
+  }
+  .iconBtn:hover{ border-color:#fff; transform: translateY(-1px); }
+  .iconImg{ width:35px; height:35px; object-fit:contain; display:block; }
+  
+  /* ================== CONTENU DU HERO ================== */
+  .hero__container{
+    width: min(1280px, 100% - 64px);
+    margin: 0 auto;
+    display:grid; grid-template-columns: 1fr 1.1fr;
+    align-items:center; gap: clamp(24px, 5vw, 56px);
+    padding-block: clamp(24px, 6vw, 96px);
+  }
+  .hero__image{ display:flex; justify-content:center; }
+  .hero__image img{ width: clamp(320px, 40vw, 520px); filter: drop-shadow(0 16px 40px rgba(0,0,0,.35)); }
+  .hero__copy{ text-align:center; }
+  @media (min-width:1024px){ .hero__copy{ text-align:left; } }
+  .eyebrow{ font-size:28px; font-weight:600; letter-spacing:-.2px; }
+  .title{ margin-top:12px; font-size:clamp(32px,5vw,48px); font-weight:800; line-height:1.15; text-shadow:0 1px 0 rgba(0,0,0,.15); }
+  .tagline{ margin-top:18px; max-width:620px; color:rgba(255,255,255,.9); }
+  
+  /* ================== BOUTON CV ================== */
+  .ctaRow{ margin-top:28px; }
+  .btn{
+    position: relative;
+    font-size:17px; font-weight:600; text-transform: uppercase; font-family: inherit;
+    padding: .85em 1.4em; border-radius: 6em;
+    display:inline-flex; align-items:center; justify-content:center;
+    gap:.6em; white-space:nowrap;
+    color:#000; background:#fff; text-decoration:none; border:none; cursor:pointer;
+    overflow:hidden; transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{ transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,.2); }
+  .btn:active{ transform: translateY(-1px); box-shadow: 0 5px 10px rgba(0,0,0,.2); }
+  .btn::after{
+    content:""; position:absolute; inset:0; border-radius:inherit;
+    background:#fff; z-index:0;
+    transition: transform .4s ease, opacity .4s ease;
+  }
+  .btn:hover::after{ transform: scale(1.4); opacity:0; }
+  .btn > *{ position: relative; z-index:1; }
+  .btn svg{ width:18px; height:18px; flex:none; }
+
+  
+  /* ================== DOTS (indicateur de section) ================== */
+  .dotsNav{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 14px;
+    z-index: 50;
+  }
+  .dot{
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.45);
+    transition: transform .2s, background .2s, border-color .2s;
+    cursor: pointer;
+  }
+  .dot.is-active{
+    background: #fff;
+    border-color: #fff;
+    transform: scale(1.1);
+  }
+  
+  /* ================== Responsive ================== */
+  @media (max-width:1024px){
+    .hero__container{ grid-template-columns: 1fr; text-align:center; }
+    .hero__image{ order:1; }
+    .hero__copy{ order:2; }
+  }
+  /* Cacher la barre de défilement de .snap, mais garder le scroll */
+.snap{
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* IE/Edge (legacy) */
+  }
+  .snap::-webkit-scrollbar{
+    display: none; 
+  }
+  
+  /* Évite d’avoir EN PLUS une barre de scroll sur la page */
+  html, body {
+    height: 100%;
+    overflow-y: scroll;     /* ✅ permet de scroller */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge legacy */
+  }
+  
+  html::-webkit-scrollbar {
+    display: none;          /* ✅ Chrome/Safari */
+  }
+  
+  
+  /* =============== Fond commun pour la page contact =============== */
+.page{
+    min-height: 100vh;
+    background: linear-gradient(180deg, #333D8F 66%, #A19BB7 100%);
+    color: #fff;
+  }
+  
+  /* Laisse voir le fond; garde le header que tu as déjà */
+  .section--contact{
+    background: transparent;
+    color: #fff;
+  }
+  
+  /* Bloc formulaire */
+.contact{ width:min(980px,100% - 64px); margin:0 auto; padding:clamp(28px,6vw,72px) 0 90px; }
+.contact__title{ text-align:center; font-weight:800; font-size:clamp(36px,6vw,56px); line-height:1.1; margin:0 0 10px; }
+.contact__subtitle{ text-align:center; margin:0 auto 48px; max-width:740px; color:rgba(255,255,255,.9); }
+
+.contact__form{ width:100%; }
+.contact__row{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,64px); margin-bottom:36px; }
+
+.field label{ display:block; margin-bottom:12px; font-weight:600; letter-spacing:.2px; color:rgba(255,255,255,.95); }
+.field input, .field textarea{
+  width:100%; background:transparent; border:none; border-bottom:2px solid rgba(255,255,255,.35);
+  padding:10px 0 12px; color:#fff; font:inherit; outline:none; transition:border-color .2s, box-shadow .2s;
+}
+.field input::placeholder, .field textarea::placeholder{ color:rgba(255,255,255,.75); }
+.field input:focus, .field textarea:focus{ border-bottom-color:#fff; box-shadow:0 2px 0 #fff inset; }
+.field textarea{ margin-top:8px; resize:vertical; min-height:120px; }
+
+/* 1) Centrer le bouton dans la zone d’actions */
+.contact__actions{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    padding-top:28px;
+  }
+  .contact__actions .btn{
+    margin-inline:auto;          /* fallback si un style externe traîne */
+  }
+  
+  /* 2) Protéger .btn des styles globaux "button { ... }" (du header) */
+  button.btn{
+    display:inline-flex;         /* force inline-flex sur CE bouton */
+    align-items:center;
+    justify-content:center;
+    font-size:17px;              /* remet la taille que tu veux */
+    gap:.6em;
+  }
+  
+  /* 3) Effet d’onde bien derrière le texte */
+  button.btn::after{
+    z-index:-1;
+    pointer-events:none;
+  }
+  button.btn > *{
+    position:relative;
+    z-index:1;
+  }
+  
+  /* 4) Si jamais quelque chose continue de résister,
+        cette variante centre quoi qu'il arrive : */
+  @supports (place-self: center) {
+    .contact__actions { display:grid; }
+    .contact__actions .btn { place-self:center; }
+  }
+  
+
+/* ===== ABOUT ===== */
+.about{
+    width: min(1100px, 100% - 64px);
+    margin: 0 auto;
+    padding: clamp(20px, 6vw, 48px) 0;
+    color: var(--text);
+  }
+  
+  .about__title{
+    font-size: clamp(28px, 4.5vw, 42px);
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin: 0 0 8px 0;
+  }
+  
+  .about__subtitle{
+    opacity: .92;
+    max-width: 840px;
+    margin: 0 0 28px 0;
+  }
+  
+  .about__grid{
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(16px, 4vw, 36px);
+  }
+  
+  .about__intro{ margin: 0 0 12px 0; }
+  .about__bullets{ margin: 0 0 18px 18px; }
+  .about__bullets li{ margin: 6px 0; }
+  
+  .about__h3{
+    margin: 18px 0 10px;
+    font-size: 18px;
+    opacity: .9;
+  }
+  
+  .about__skills{
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .skilltag{
+    display:inline-flex; align-items:center;
+    padding: 8px 12px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.35);
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(3px);
+    font-size: 14px;
+  }
+  
+  .about__cards{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+  }
+  .card{
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(4px);
+    padding: 14px 16px;
+  }
+  .card h4{ margin: 0 0 6px 0; font-size: 16px; }
+  .card p{ margin: 0; opacity: .95; }
+  
+  .card.stat{
+    display:flex; flex-direction: column; align-items: flex-start;
+    justify-content:center;
+  }
+  .card.stat strong{
+    font-size: 28px; line-height:1; margin-bottom: 6px;
+  }
+  .card.stat small{ opacity:.9; }
+  
+  /* Responsive: une seule colonne */
+  @media (max-width: 900px){
+    .about__grid{ grid-template-columns: 1fr; }
+  }
+  
+
+  .footer {
+    background: #222c70; /* bleu foncé cohérent avec ton header */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+  }
+  
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer__text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+  }
+  
+  .footer__links a {
+    color: white;
+    margin-left: 15px;
+    font-size: 20px;
+    transition: color 0.2s ease;
+  }
+  
+  .footer__links a:hover {
+    color: #ffd700; /* petit effet jaune/doré au survol */
+  }
+  
+  .section--footer {
+    min-height: auto;  
+    padding: 40px 0;
+    background: #222c70;
+  }
+
+  /* ================== PROJECTS ================== */
+ /* ================== PROJECTS ================== */
+
+.projects__content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.projects__list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;   /* responsive */
+  margin-bottom: 60px;
+}
+
+.projectCard {
+  flex: 1 1 350px;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 26px;
+  border-radius: 18px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-8px);
+}
+
+.projectCard h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.projectCard p {
+  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* TAGS */
+.tags {
+  margin: 10px 0 14px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* LISTE */
+.projectCard ul {
+  margin: 0 0 16px 18px;
+  padding: 0;
+  list-style: disc;
+  font-size: 14px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 12px 0;
+}
+
+/* FOOTER D'UNE CARD (lien + image alignés) */
+.projectFooter {
+  display: flex;
+  align-items: center;      /* centre verticalement */
+  /* justify-content: space-between; */
+  margin-top: 6px;          /* espace encore réduit */
+}
+
+/* LIEN */
+.projectLink {
+  color: #ffcc00;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;   /* empêche le retour à la ligne */
+  line-height: 1;        /* supprime les espaces invisibles */
+}
+
+.projectLink:hover {
+  text-decoration: underline;
+}
+
+/* IMAGE */
+.projectImage img {
+  width: 85px;          /* taille uniforme */
+  height: 85px;
+  object-fit: cover;    /* recadrage propre */
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-left : 30px;
+
+}
+
+
+/* ================== SKILLS ================== */
+
+.skillsPart {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.skills__title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.skills__list {
+  display: flex;
+  flex-wrap: wrap;          /* permet de passer à la ligne si trop long */
+  gap: 14px;
+  justify-content: center;  /* centre sur la page */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skilltag {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.skilltag:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
