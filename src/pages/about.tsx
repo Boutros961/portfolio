@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../component/header";
 import Footer from "../component/footer";
-
 import { useNavigate } from "react-router-dom";
 import "../styles/home.css";
 
@@ -9,16 +8,71 @@ export default function About() {
   const navigate = useNavigate();
   const sections = ["home", "about", "projects", "contact"] as const;
 
+  const timeline = [
+    {
+      date: "2022 – présent",
+      title: "ECE Paris",
+      desc: "Prépa intégrée ingénieur – Maths, Physique, Informatique, Anglais",
+    },
+    {
+      date: "2024",
+      title: "University of Technology Sydney",
+      desc: "Semestre à l’étranger – IA, IoT, Innovation & Ingénierie",
+    },
+    {
+      date: "2019 – 2022",
+      title: "Baccalauréat",
+      desc: "Spécialités : Maths, Physique, SES – Mention Bien",
+    },
+    {
+      date: "2025",
+      title: "Spexal (Liban)",
+      desc: "Stage ouvrier – Automatisation de robots pour l’industrie automobile",
+    },
+    {
+      date: "2025",
+      title: "Spie Building & Solutions (Paris)",
+      desc: "Stage ouvrier – Chiffrage et suivi de projets en électricité",
+    },
+    {
+      date: "2024",
+      title: "Thales (Élancourt)",
+      desc: "Stage ouvrier – Annotation d’images pour un projet d’IA",
+    },
+    {
+      date: "2024",
+      title: "Banque SBA (Paris)",
+      desc: "Stage d’observation – Salle des marchés, conformité, juridique",
+    },
+  ];
+
   return (
     <main className="page home">
-      {/* SECTION ABOUT */}
-      <section id="about" className="hero section">
+      <section id="about" className="hero section section--about">
         <Header active="about" />
 
-        <div className="hero__container">
-          <div className="hero__copy" style={{ gridColumn: "1 / -1" }}>
-            <h1 className="title">About</h1>
-            <p className="tagline">Ta bio + skills + objectifs…</p>
+        <div className="about__container">
+          <h1 className="title">About Me</h1>
+          <p className="tagline">
+            Étudiant en cybersécurité et data & IA à l’ECE Paris
+          </p>
+
+          {/* Timeline serpentine */}
+          <div className="timelineSnake">
+            {timeline.map((item, index) => (
+              <div
+                key={index}
+                className={`timelineSnake__item ${
+                  index % 2 === 0 ? "right" : "left"
+                }`}
+              >
+                <div className="timelineSnake__content">
+                  <span className="timelineSnake__date">{item.date}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -35,8 +89,8 @@ export default function About() {
           />
         ))}
       </aside>
-      <Footer />
 
+      <Footer />
     </main>
   );
 }
