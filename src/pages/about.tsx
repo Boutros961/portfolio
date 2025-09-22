@@ -11,32 +11,32 @@ export default function About() {
   const timeline = [
       {
         date: "2025",
-        title: "Spexal (Liban)",
+        title: "Spexal (Lebanon)",
         desc: " Worker internship – Specialized in robotic automation for the automotive industry.",
       },
       {
         date: "2025",
-        title: "Spie Building & Solutions (Paris)",
+        title: "Spie Building & Solutions (France)",
         desc: " Worker internship –  Cost estimation and project monitoring in electrical engineering",
       },
       {
         date: "2024",
-        title: "University of Technology Sydney",
+        title: "University of Technology Sydney (Australia)",
         desc: " First year of engineering school – IA, IoT, Innovation & Engineering Projects",
       },
       {
         date: "2024",
-        title: "Thales (Élancourt)",
+        title: "Thales (France)",
         desc: " Worker internship – Image annotation for artificial intelligence (Machine Learning)",
       },
       {
         date: "2024",
-        title: "Banque SBA (Paris)",
+        title: "Banque SBA (France)",
         desc: " Observation internship –  Investment and international trade banking",
       },
       {
         date: "2022 – Present",
-        title: "ECE Paris",
+        title: "ECE Paris France",
         desc: "Foundation Year in Engineering – Mathematics, Physics, Electronics, Computer Science, and English",
       },
     ];
