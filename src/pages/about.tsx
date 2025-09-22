@@ -9,42 +9,39 @@ export default function About() {
   const sections = ["home", "about", "projects", "contact"] as const;
 
   const timeline = [
-    {
-      date: "2022 – présent",
-      title: "ECE Paris",
-      desc: "Prépa intégrée ingénieur – Maths, Physique, Informatique, Anglais",
-    },
-    {
-      date: "2024",
-      title: "University of Technology Sydney",
-      desc: "Semestre à l’étranger – IA, IoT, Innovation & Ingénierie",
-    },
-    {
-      date: "2019 – 2022",
-      title: "Baccalauréat",
-      desc: "Spécialités : Maths, Physique, SES – Mention Bien",
-    },
-    {
-      date: "2025",
-      title: "Spexal (Liban)",
-      desc: "Stage ouvrier – Automatisation de robots pour l’industrie automobile",
-    },
-    {
-      date: "2025",
-      title: "Spie Building & Solutions (Paris)",
-      desc: "Stage ouvrier – Chiffrage et suivi de projets en électricité",
-    },
-    {
-      date: "2024",
-      title: "Thales (Élancourt)",
-      desc: "Stage ouvrier – Annotation d’images pour un projet d’IA",
-    },
-    {
-      date: "2024",
-      title: "Banque SBA (Paris)",
-      desc: "Stage d’observation – Salle des marchés, conformité, juridique",
-    },
-  ];
+      {
+        date: "2025",
+        title: "Spexal (Liban)",
+        desc: "Stage ouvrier – Automatisation de robots pour l’industrie automobile",
+      },
+      {
+        date: "2025",
+        title: "Spie Building & Solutions (Paris)",
+        desc: "Stage ouvrier – Chiffrage et suivi de projets en électricité",
+      },
+      {
+        date: "2024",
+        title: "University of Technology Sydney",
+        desc: "Semestre à l’étranger – IA, IoT, Innovation & Ingénierie",
+      },
+      {
+        date: "2024",
+        title: "Thales (Élancourt)",
+        desc: "Stage ouvrier – Annotation d’images pour un projet d’IA",
+      },
+      {
+        date: "2024",
+        title: "Banque SBA (Paris)",
+        desc: "Stage d’observation – Salle des marchés, conformité, juridique",
+      },
+      {
+        date: "2022 – présent",
+        title: "ECE Paris",
+        desc: "Prépa intégrée ingénieur – Maths, Physique, Informatique, Anglais",
+      },
+    ];
+    
+  
 
   return (
     <main className="page home">
@@ -52,10 +49,11 @@ export default function About() {
         <Header active="about" />
 
         <div className="about__container">
-          <h1 className="title">About Me</h1>
-          <p className="tagline">
-            Étudiant en cybersécurité et data & IA à l’ECE Paris
-          </p>
+          {/* <div className="cloud-bubble">
+  <p>What I enjoy in cybersecurity is not just protecting systems, but understanding how they break and how to make them stronger.</p>
+</div> */}
+<h1 className="cyber-stats">A cyberattack occurs every 39 seconds ⏱️</h1>
+
 
           {/* Timeline serpentine */}
           <div className="timelineSnake">

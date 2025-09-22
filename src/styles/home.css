@@ -365,43 +365,86 @@
   
 
   .footer {
-    background: #222c70; /* bleu foncé cohérent avec ton header */
+    background: #222c70;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
+    padding: 30px 20px;
     margin-top: auto;
   }
   
   .footer__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 980px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .footer__info {
+    flex: 1 1 250px;
   }
   
   .footer__text {
     font-size: 14px;
-    color: rgba(255,255,255,0.85);
+    margin: 0;
+    opacity: 0.85;
   }
   
-  .footer__links a {
+  .footer__tagline {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 4px;
+  }
+  
+  .footer__nav {
+    display: flex;
+    gap: 18px;
+  }
+  
+  .footer__nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  
+  .footer__nav a:hover {
+    /* background: linear-gradient(90deg, #00f5ff, #3b58d7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; 
+    color: transparent; */
+    color: #00e6ff;
+  }
+  
+  
+  .footer__socials {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer__socials a {
     color: white;
-    margin-left: 15px;
-    font-size: 20px;
-    transition: color 0.2s ease;
+    transition: transform 0.2s, color 0.2s;
   }
   
-  .footer__links a:hover {
-    color: #ffd700; /* petit effet jaune/doré au survol */
+  .footer__socials a:hover {
+    color: #00e6ff;
+    transform: scale(1.1);
   }
   
-  .section--footer {
-    min-height: auto;  
-    padding: 40px 0;
-    background: #222c70;
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer__container {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer__nav {
+      justify-content: center;
+    }
   }
+  
 
   /* ================== PROJECTS ================== */
  /* ================== PROJECTS ================== */
@@ -491,7 +534,8 @@ hr {
 
 /* LIEN */
 .projectLink {
-  color: #ffcc00;
+  color: #00e6ff;
+
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;   /* empêche le retour à la ligne */
@@ -513,6 +557,16 @@ hr {
 
 }
 
+.projectCard h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, #00f5ff, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
 /* ================== SKILLS ================== */
 
@@ -609,68 +663,136 @@ hr {
   width: 1em;
   margin-left: -1em;
 }
-/* ================== TIMELINE ================== */
-.timeline {
-  margin-top: 50px;
+
+
+
+
+/* ===== ABOUT TITLE & TAGLINE ===== */
+
+.section--about .title {
+  font-size: clamp(36px, 5vw, 52px);  /* responsive */
+  font-weight: 800;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35); /* petit effet de relief */
+  letter-spacing: -0.5px;
+  margin-left: 60px;
 }
 
-.timeline h2 {
-  font-size: 26px;
-  font-weight: 700;
-  color: #ffcc00;
-  margin-bottom: 24px;
+.section--about .tagline {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 400;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 50px;
+  /* max-width: 720px; */
+  margin-left: 15px;
+  /* margin-right: auto; */
+  line-height: 1.6;
 }
-
-.timeline__list {
+.cloud-bubble {
   position: relative;
-  margin-left: 20px;
-  padding-left: 20px;
-  border-left: 2px solid rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  background: linear-gradient(135deg, #00f0ff, #7d5fff);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 25px 40px;
+  border-radius: 50px;
+  max-width: 420px;
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-bottom: -30px;
+  margin-left: 5rem;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6), 
+              0 0 40px rgba(125, 95, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.timeline__item {
-  position: relative;
-  margin-bottom: 30px;
+/* Effet au survol : glow renforcé */
+.cloud-bubble:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.8), 
+              0 0 60px rgba(125, 95, 255, 0.6);
 }
 
-.timeline__item::before {
+/* Petits ronds "cyber" */
+.cloud-bubble::before,
+.cloud-bubble::after {
   content: "";
   position: absolute;
-  left: -31px;
-  top: 6px;
-  width: 14px;
-  height: 14px;
   border-radius: 50%;
-  background: #ffcc00;
-  border: 2px solid #fff;
+  background: linear-gradient(135deg, #00f0ff, #7d5fff);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+  transition: transform 0.3s ease;
 }
 
-.timeline__date {
-  font-size: 14px;
-  font-weight: 600;
-  color: #aaa;
-  margin-bottom: 6px;
+.cloud-bubble::before {
+  width: 35px;
+  height: 35px;
+  left: -25px;
+  top: 25px;
 }
 
-.timeline__content {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 14px 18px;
-  border-radius: 10px;
-  font-size: 15px;
-  line-height: 1.5;
+.cloud-bubble::after {
+  width: 20px;
+  height: 20px;
+  left: -45px;
+  top: 40px;
 }
 
+/* Hover des ronds */
+.cloud-bubble:hover::before {
+  transform: translateY(-4px) scale(1.15);
+}
+.cloud-bubble:hover::after {
+  transform: translateY(-6px) scale(1.2);
+}
+
+.cyber-stats {
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00ff88; /* Curseur */
+  width: 0;
+  margin-left: 25px;
+  margin-top: 25px;
+
+  /* Dégradé appliqué au texte */
+  background: linear-gradient(90deg, #00ff88, #00c8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Animation */
+  animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+/* ================== TIMELINE ================== */
 /* ================== TIMELINE SNAKE ================== */
 .timelineSnake {
   position: relative;
   margin: 60px auto;
-  padding: 20px 0;
+  padding: -5px 0;
   width: 100%;
   max-width: 900px;
 }
 
-/* ligne centrale */
+/* ligne centrale avec effet "pulse" */
 .timelineSnake::before {
   content: "";
   position: absolute;
@@ -678,16 +800,41 @@ hr {
   bottom: 0;
   left: 50%;
   width: 3px;
-  background: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(180deg, #00f0ff, #7d5fff);
+  background-size: 200% 200%;
+  animation: gradientMove 4s linear infinite;
   transform: translateX(-50%);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
 }
 
 .timelineSnake__item {
   position: relative;
   width: 50%;
   padding: 20px 30px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
+.timelineSnake__item:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+.timelineSnake__item:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* points bleus avec effet "pulse" */
 .timelineSnake__item::before {
   content: "";
   position: absolute;
@@ -695,9 +842,26 @@ hr {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #ffcc00;
+  background: #00e6ff;
   border: 2px solid #fff;
   z-index: 2;
+  box-shadow: 0 0 0 0 rgba(0, 230, 255, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 230, 255, 0.6);
+  }
+  70% {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px 10px rgba(0, 230, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 230, 255, 0);
+  }
 }
 
 /* blocs alternés gauche/droite */
@@ -724,13 +888,21 @@ hr {
   color: #fff;
   font-size: 15px;
   line-height: 1.5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover sur les blocs */
+.timelineSnake__content:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4),
+              0 0 25px rgba(125, 95, 255, 0.3);
 }
 
 .timelineSnake__date {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: #ffcc00;
+  color: #00e6ff;
   margin-bottom: 6px;
 }
 
