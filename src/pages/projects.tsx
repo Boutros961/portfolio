@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import Header from "../component/header";
 import Footer from "../component/footer";
 import { useNavigate } from "react-router-dom";
@@ -35,7 +35,7 @@ export default function Projects() {
 
         <div className="projects__content">
           <div className="projects__list">
-            
+
             {/* Guitar Hero */}
             <div className="projectCard">
               <h3>Guitar Hero</h3>

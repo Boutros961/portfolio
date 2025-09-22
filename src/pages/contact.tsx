@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "../component/header";
 import Footer from "../component/footer";
 
