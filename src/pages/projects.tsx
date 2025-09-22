@@ -58,7 +58,7 @@ export default function Projects() {
                   Voir le site →
                 </a>
                 <div className="projectImage">
-                  <img src="/public/guitar_hero.png" alt="Guitar Hero" />
+                  <img src="/guitar_hero.png" alt="Guitar Hero" />
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ export default function Projects() {
                   Voir le site →
                 </a>
                 <div className="projectImage">
-                  <img src="/public/colab_agenda.png" alt="Colab Agenda" />
+                  <img src="/colab_agenda.png" alt="Colab Agenda" />
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function Projects() {
                   Voir le site →
                 </a>
                 <div className="projectImage">
-                  <img src="/public/akly.png" alt="Akly App" />
+                  <img src="/akly.png" alt="Akly App" />
                 </div>
               </div>
             </div>
