@@ -35,6 +35,7 @@ export default function Projects() {
 
         <div className="projects__content">
           <div className="projects__list">
+            
             {/* Guitar Hero */}
             <div className="projectCard">
               <h3>Guitar Hero</h3>

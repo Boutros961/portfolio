@@ -40,11 +40,11 @@ export default function Contact() {
         <div className="hero__container">
           <div className="hero__copy" style={{ gridColumn: "1 / -1" }}>
           <div className="contact__header">
-  <h1 className="contact__title">Send me a message !</h1>
-  <p className="contact__subtitle">
-    Got a question or proposal, or just want to say hello?
-  </p>
-</div>
+            <h1 className="contact__title">Send me a message !</h1>
+            <p className="contact__subtitle">
+              Got a question or proposal, or just want to say hello?
+            </p>
+          </div>
 
 
             <form className="contact__form" onSubmit={(e) => e.preventDefault()}>

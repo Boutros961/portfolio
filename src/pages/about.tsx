@@ -12,32 +12,32 @@ export default function About() {
       {
         date: "2025",
         title: "Spexal (Liban)",
-        desc: "Stage ouvrier – Automatisation de robots pour l’industrie automobile",
+        desc: " Worker internship – Specialized in robotic automation for the automotive industry.",
       },
       {
         date: "2025",
         title: "Spie Building & Solutions (Paris)",
-        desc: "Stage ouvrier – Chiffrage et suivi de projets en électricité",
+        desc: " Worker internship –  Cost estimation and project monitoring in electrical engineering",
       },
       {
         date: "2024",
         title: "University of Technology Sydney",
-        desc: "Semestre à l’étranger – IA, IoT, Innovation & Ingénierie",
+        desc: " First year of engineering school – IA, IoT, Innovation & Engineering Projects",
       },
       {
         date: "2024",
         title: "Thales (Élancourt)",
-        desc: "Stage ouvrier – Annotation d’images pour un projet d’IA",
+        desc: " Worker internship – Image annotation for artificial intelligence (Machine Learning)",
       },
       {
         date: "2024",
         title: "Banque SBA (Paris)",
-        desc: "Stage d’observation – Salle des marchés, conformité, juridique",
+        desc: " Observation internship –  Investment and international trade banking",
       },
       {
-        date: "2022 – présent",
+        date: "2022 – Present",
         title: "ECE Paris",
-        desc: "Prépa intégrée ingénieur – Maths, Physique, Informatique, Anglais",
+        desc: "Foundation Year in Engineering – Mathematics, Physics, Electronics, Computer Science, and English",
       },
     ];
     

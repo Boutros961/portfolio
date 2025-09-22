@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optionnel : fond gris clair de la page, police système */
 :root { color-scheme: light dark; }
 html, body, #root { height: 100%; }
 body {
   margin: 0;
-  background: #f3f4f6; /* gris clair pour contraster le bloc noir */
+  background: #f3f4f6; 
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
 }
