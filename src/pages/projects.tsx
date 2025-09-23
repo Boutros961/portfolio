@@ -44,13 +44,12 @@ export default function Projects() {
                 <span className="tag">Allegro</span>
               </div>
               <p>
-                Conception et réalisation du jeu Guitar Hero dans le cadre d’un
-                projet scolaire en informatique.
+              Design and development of the Guitar Hero game as part of a school project in computer science.
               </p>
               <ul>
-                <li>Gameplay fluide 60 fps</li>
-                <li>Système de combo et high scores</li>
-                <li>Éditeur de niveaux simples</li>
+                <li>Smooth 60 fps gameplay</li>
+                <li>Combo and high score system</li>
+                <li>Simple level editor</li>
               </ul>
               <hr />
               <div className="projectFooter">
@@ -71,13 +70,12 @@ export default function Projects() {
                 <span className="tag">Firebase</span>
               </div>
               <p>
-                Conception et réalisation de Colab Agenda dans le cadre d’un
-                projet scolaire en informatique.
+              Design and development of Colab Agenda as part of a school project in computer science.
               </p>
               <ul>
-                <li>Partage d’agenda collaboratif</li>
-                <li>Notifications en temps réel</li>
-                <li>Synchronisation multi-utilisateurs</li>
+                <li>Collaborative calendar sharing</li>
+                <li>Real-time notifications</li>
+                <li>Multi-user synchronization</li>
               </ul>
               <hr />
               <div className="projectFooter">
@@ -103,13 +101,12 @@ export default function Projects() {
                 <span className="tag">Firebase</span>
               </div>
               <p>
-                Application collaborative de gestion des stocks alimentaires et
-                ménagers.
+              Collaborative application for managing household and grocery stocks.
               </p>
               <ul>
-                <li>Liste de courses partagée en temps réel</li>
-                <li>Suivi des dates de péremption avec alertes</li>
-                <li>Profils utilisateurs et gestion multi-foyers</li>
+                <li>Real-time shared shopping list</li>
+                <li>Expiration date tracking with alerts</li>
+                <li>User profiles and multi-household management</li>
               </ul>
               <hr />
               <div className="projectFooter">
