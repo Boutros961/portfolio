@@ -7,7 +7,7 @@ import "../styles/home.css";
 
 
 export default function Home() {
-  const cvHref = encodeURI("/PIERRE CHAHINE - CV (FRANÇAIS).6.pdf");
+  const cvHref = encodeURI("/PIERRE CHAHINE - CV (FRANÇAIS).8.pdf");
   const navigate = useNavigate();
 
   // sections pour les dots
